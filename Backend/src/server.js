@@ -2,6 +2,7 @@ import express from "express";
 import notesRoutes from './Routes/notesRoutes.js'
 import { connectDB } from "./Config/db.js";
 import dotenv from "dotenv";
+import rateLimiter from "./Middleware/rateLimiter.js";
 
 const app = express();
 
@@ -13,6 +14,8 @@ connectDB();
 
 //Middleware allowing us to parse for user inputs.
 app.use(express.json());
+
+app.use(rateLimiter);
 
 app.use("/api/notes", notesRoutes);
 
