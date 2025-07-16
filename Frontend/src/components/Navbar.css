@@ -2,6 +2,52 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: sans-serif;
     color: #333;
+}
+
+.navbar-container {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1f2125;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.logo-container h1 {
+    color: forestgreen;
+    font-weight: bold;
+    font-size: 25pt;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.button-container button {
+    background-color: forestgreen;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 16pt;
+    border-radius: 10pt;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.create-note-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px
 }
