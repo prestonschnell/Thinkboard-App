@@ -3,6 +3,7 @@ import {Route, Routes} from "react-router"; // Need this so our React app can re
 import HomePage from "./pages/HomePage";
 import CreatePage from "./pages/CreatePage";
 import NoteDetailPage from "./pages/NoteDetailPage";
+import './index.css'
 
 const App = () => {
   return (
