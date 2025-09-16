@@ -5,36 +5,43 @@ import { Link, Navigate } from 'react-router';
 import { ArrowLeftIcon } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
+import api from '../lib/axios';
 
 const CreatePage = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("")
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { 
 
-    e.preventDefault();
-    console.log(title);
+    e.preventDefault(); // Prevents the page from reloading each time we submit the form.
+    console.log(title); // We put this here to test for the proper information being passed in.
     console.log(content); 
     
-    if (!title.trim() || !content.trim()) {
+    if (!title.trim() || !content.trim()) {   // Basically, if either the note title or note content is empty, then we send a notification to the user to fill in all fields.
     toast.error("Please fill in all fields");
     return;
   }
 
    setLoading(true);
   try {
-    await axios.post("http://localhost:3000/api/notes", {
+    await api.post("/notes", {    // Sending our title, content to our backend. We also use await in conjunction with async to wait for the axios post request to finish before moving on.
       title,
       content,
     });
-    toast.success("Note created successfully");
+    toast.success("Note created successfully");   // If the note is created successfully, we send a success notificiation to the user.
     Navigate("/");
   } catch (error) {
-    console.log("Error creating note", error);
+    if (error.response.status === 429) {
+      toast.error("You are creating notes too quickly. Please wait a moment and try again.", { duration: 8000, icon: '⏳' });
+    }
+    else {
+      console.log("Error creating note", error); // If the note fails to be created, we log the error to the console with the corresponding message and error code for debugging purposes.
     toast.error("Failed to create note");
+    }
+    
   } finally {
-    setLoading(false);
+    setLoading(false);  // After our try/catch block, we set loading to false to re-enable the submit button.
   }
   };
 
