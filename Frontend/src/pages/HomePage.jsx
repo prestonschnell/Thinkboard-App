@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar'
 import RateLimitedUI from '../components/RateLimitedUI'
-import axios from 'axios';
+/* import axios from 'axios'; */
 import toast from 'react-hot-toast'; // IGNORE: This import is not used in the provided code snippet.
 import Card from '../components/Card'; // Import the Card component to display notes
 import api from '../lib/axios';
