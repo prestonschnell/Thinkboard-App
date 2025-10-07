@@ -5,6 +5,7 @@ import RateLimitedUI from '../components/RateLimitedUI'
 import toast from 'react-hot-toast'; // IGNORE: This import is not used in the provided code snippet.
 import Card from '../components/Card'; // Import the Card component to display notes
 import api from '../lib/axios';
+import NotesNotFound from '../components/NotesNotFound.jsx'; // Import the NotesNotFound component
 
 
 const HomePage = () => {
@@ -40,13 +41,15 @@ fetchNotes();
       {isRateLimited ? (<RateLimitedUI />) : (null)} {/* // This component will handle the UI when the user is rate-limited. */}
       <div className='max-w-7-xl mx-auto px-4 mt-6'>
       {loading ? (<div className='text-center text-primary py-10'>Loading Notes</div>) : (null)}
+
+      {notes.length === 0 && !isRateLimited && <NotesNotFound/>} {/* Display message if no notes are found and not rate-limited */}
       </div>
       {notes.length > 0 && !isRateLimited ?
       
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 p-20'>
           {notes.map((note) => ( // Map through the notes and display them in a grid layout.
-            <Card key={note._id} note={note} /> // Pass the note as a prop to the Card component
+            <Card key={note._id} note={note} setNotes={setNotes} /> // Pass the note as a prop to the Card component
           ))}
         </div> : null}
     </div>

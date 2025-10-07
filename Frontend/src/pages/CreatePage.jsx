@@ -1,10 +1,9 @@
-import React from 'react'
+/* import React from 'react' */
 import '../index.css'
 import { useState } from 'react';
 import { Link, Navigate } from 'react-router';
 import { ArrowLeftIcon } from 'lucide-react';
 import { toast } from 'react-hot-toast';
-import axios from 'axios';
 import api from '../lib/axios';
 
 const CreatePage = () => {
