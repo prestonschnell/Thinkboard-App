@@ -4,7 +4,7 @@
 Thinkboard is a fullstack notes application built with React.js, Node.js, Express.js, and MongoDB. It provides real-time note management with a clean, responsive UI and is fully functional across all devices.
 
 ## Demo
-- **[Demo](./Frontend/src/assets/notes_app.gif)**
+![Live Preview](./Frontend/src/assets/notes_app.gif)**
 
 ## Tech Stack
 - **Frontend:** React.js, HTML5, CSS3 (Flexbox, Grid)
