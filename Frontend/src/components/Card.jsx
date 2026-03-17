@@ -32,8 +32,8 @@ const Card = ({note, setNotes}) => {
                 <div className='flex justify-center gap-2'>
                   <PenSquareIcon className='w-6 h-6 text-[#00FF9D] hover:text-white transition-colors duration-200' />
                   
-                  <button className='btn btn-ghost btn-xs text-error' onClick= {(e) => {handleDelete(e, note._id)}}> {/* We call our handle delete function directly.  */}
-                  <Trash2Icon className='size-6' />
+                  <button className='btn btn-ghost btn-xs text-white hover:text-white hover:bg-error/20' onClick= {(e) => {handleDelete(e, note._id)}}> {/* We call our handle delete function directly.  */}
+                  <Trash2Icon className='size-6 text-white' />
                   </button>
                 
                 </div>

@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="button-container">
             <button>
                 <Link to="/create" className="create-note-link">
-                    <PlusIcon /> Create Note
+                    <PlusIcon className="text-white" /> Create Note
                 </Link>
             </button>
         </div>

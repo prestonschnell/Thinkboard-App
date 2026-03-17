@@ -38,16 +38,22 @@
     background-color: forestgreen;
     border: none;
     cursor: pointer;
-    color: #333;
+    color: #fff;
     font-size: 16pt;
     border-radius: 10pt;
     padding: 10px 15px;
     font-weight: bold;
 }
 
+.button-container button:hover {
+    background-color: #1f8f3a;
+}
+
 .create-note-link {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px
+    gap: 5px;
+    color: #fff;
+    text-decoration: none;
 }

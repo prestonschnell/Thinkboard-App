@@ -17,7 +17,7 @@ const NoteDetailPage = () => {
   useEffect(() => {
     const fetchNote = async () => {
       try {
-        const res = await api.get(`/notes/`);
+        const res = await api.get(`/notes/${id}`);
         setNote(res.data);
       } catch (error) {
         console.log("Error in fetching note", error);
@@ -71,17 +71,25 @@ const NoteDetailPage = () => {
     );
   }
 
+  if (!note) {
+    return (
+      <div className="min-h-screen bg-base-200 flex items-center justify-center">
+        <p className="text-lg text-base-content/70">Note not found.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-base-200">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-2xl mx-auto">
           <div className="flex items-center justify-between mb-6">
-            <Link to="/" className="btn btn-ghost">
-              <ArrowLeftIcon className="h-5 w-5" />
+            <Link to="/" className="btn btn-ghost text-white hover:text-white hover:bg-base-content/10">
+              <ArrowLeftIcon className="h-5 w-5 text-white" />
               Back to Notes
             </Link>
-            <button onClick={handleDelete} className="btn btn-error btn-outline">
-              <Trash2Icon className="h-5 w-5" />
+            <button onClick={handleDelete} className="btn btn-error btn-outline text-white hover:text-white">
+              <Trash2Icon className="h-5 w-5 text-white" />
               Delete Note
             </button>
           </div>
@@ -95,7 +103,7 @@ const NoteDetailPage = () => {
                 <input
                   type="text"
                   placeholder="Note title"
-                  className="input input-bordered"
+                  className="input input-bordered text-white placeholder:text-gray-400 caret-white"
                   value={note.title}
                   onChange={(e) => setNote({ ...note, title: e.target.value })}
                 />
@@ -107,14 +115,14 @@ const NoteDetailPage = () => {
                 </label>
                 <textarea
                   placeholder="Write your note here..."
-                  className="textarea textarea-bordered h-32"
+                  className="textarea textarea-bordered h-32 text-white placeholder:text-gray-400 caret-white"
                   value={note.content}
                   onChange={(e) => setNote({ ...note, content: e.target.value })}
                 />
               </div>
 
               <div className="card-actions justify-end">
-                <button className="btn btn-primary" disabled={saving} onClick={handleSave}>
+                <button className="btn btn-primary text-white hover:text-white" disabled={saving} onClick={handleSave}>
                   {saving ? "Saving..." : "Save Changes"}
                 </button>
               </div>

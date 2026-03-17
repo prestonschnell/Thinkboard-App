@@ -53,8 +53,8 @@ const CreatePage = () => {
     <div className = "min-h-screen bg-base-200">
       <div className = "container mx-auto px-4 py-8">
         <div className = "max-w-2xl mx-auto">
-          <Link to = {"/"} className = "btn mb-6">
-            <ArrowLeftIcon className = "size-5"/>
+          <Link to = {"/"} className = "btn btn-ghost mb-6 text-white hover:text-white hover:bg-base-content/10">
+            <ArrowLeftIcon className = "size-5 text-white"/>
             Back to Notes
           </Link>
 
@@ -68,7 +68,7 @@ const CreatePage = () => {
                 </label>
                 <input type="text" 
                 placeholder='Note Title' 
-                className='input input-bordered' 
+                className='input input-bordered text-white placeholder:text-gray-400 caret-white' 
                 value={title} 
                 onChange={(e) => setTitle(e.target.value)} 
                 />
@@ -80,14 +80,14 @@ const CreatePage = () => {
                   </label>
                   <textarea 
                   placeholder='Write your note here...' 
-                  className='textarea textarea-bordered h-24' 
+                  className='textarea textarea-bordered h-24 text-white placeholder:text-gray-400 caret-white' 
                   value={content} 
                   onChange={(e) => setContent(e.target.value)} 
                   />
                 </div>
 
                 <div className="card-actions justify-end">
-                  <button type='submit' className='btn btn-primary' disabled={loading}>
+                  <button type='submit' className='btn btn-primary text-white hover:text-white' disabled={loading}>
                     {loading ? "Creating..." : "Create Note"}
                   </button>
                 </div>
